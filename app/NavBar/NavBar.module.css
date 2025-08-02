@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Roboto&display=swap");
 
-body {
+.logo {
+  font-family: "Creepster", cursive;
+}
+
+.navigation {
   margin: 0;
-  background-color: black;
-  color: white;
+  border: 1px solid white;
 }
