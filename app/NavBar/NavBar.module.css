@@ -2,9 +2,36 @@
 
 .logo {
   font-family: "Creepster", cursive;
+  margin-left: 35px;
+}
+
+.signSection {
+  margin-right: 25px;
 }
 
 .navigation {
   margin: 0;
-  border: 1px solid white;
+  border-bottom: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.signBtn {
+  border: none;
+  background-color: crimson;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+.signBtn:hover {
+  background-color: #850b0b;
 }
