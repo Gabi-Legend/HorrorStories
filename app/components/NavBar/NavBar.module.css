@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  min-height: 60px;
   margin: 0;
   border-bottom: 1px solid white;
   display: flex;
@@ -19,10 +19,9 @@
 
 .logo {
   font-family: "Creepster", cursive;
-  margin-left: 35px;
   font-size: 2rem;
   color: white;
-  transition: color 0.3s ease-in-out;
+  margin-left: 35px;
 }
 
 .logo a {
@@ -36,9 +35,9 @@
 }
 
 .signSection {
-  margin-right: 25px;
   display: flex;
   gap: 10px;
+  margin-right: 25px;
 }
 
 .signBtn {
@@ -51,7 +50,10 @@
   padding: 10px 18px;
   font-size: 15px;
   border-radius: 10px;
-  transition: background-color 0.2s ease-in-out, box-shadow 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .signBtn:hover {
@@ -59,29 +61,65 @@
   box-shadow: 0 0 8px #850b0b;
 }
 
-@media (max-width: 600px) {
-  .navigation {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 15px;
-  }
+/* Burger button */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 25px;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .logo {
-    margin-left: 0;
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
+.burgerLine,
+.burgerLineActive {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s linear;
+}
 
+/* Burger animation when active */
+.burgerLineActive:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burgerLineActive:nth-child(2) {
+  opacity: 0;
+}
+
+.burgerLineActive:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
   .signSection {
-    width: 100%;
-    justify-content: flex-start;
-    margin-right: 0;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background-color: #111;
+    flex-direction: column;
+    width: 150px;
+    padding: 10px;
+    display: none;
+    border-left: 1px solid white;
+    height: calc(100vh - 60px);
+    box-sizing: border-box;
   }
 
-  .signBtn {
-    flex: 1;
-    padding: 12px 0;
-    font-size: 16px;
-    margin-right: 10px;
+  .signSection.showMenu {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
   }
 }
