@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Nosifer&family=Roboto&display=swap");
+
+.homeEntireSect {
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.homeSect {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.find {
+  font-family: "Nosifer", cursive;
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 8px crimson;
+}
+
+.homeSect button {
+  background-color: crimson;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.homeSect button:hover {
+  background-color: #850b0b;
+  box-shadow: 0 0 12px #850b0b;
+}
+
+@media (max-width: 480px) {
+  .find {
+    font-size: 2rem;
+  }
+
+  .homeSect {
+    width: 90%;
+  }
+
+  .homeSect button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
