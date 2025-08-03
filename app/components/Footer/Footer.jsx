@@ -10,7 +10,6 @@ export default function Footer() {
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms of Service</a>
       </div>
-      <div className={styles.socials}>{/* Icone sociale, dacă vrei */}</div>
     </footer>
   );
 }
