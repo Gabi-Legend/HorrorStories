@@ -5,10 +5,19 @@ import styles from "./NavBar.module.css";
 import Link from "next/link";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
+import { signOut } from "firebase/auth";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [user, loading, error] = useAuthState(auth);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
 
   return (
     <nav className={styles.navigation}>
@@ -45,7 +54,11 @@ export default function NavBar() {
             </Link>
           </>
         )}
-        {user && <p className={styles.welcomeMsg}>Welcome, {user.email}</p>}
+        {user && (
+          <button onClick={handleLogout} className={styles.signBtn}>
+            Log Out
+          </button>
+        )}
       </div>
     </nav>
   );
