@@ -17,6 +17,10 @@
   box-sizing: border-box;
 }
 
+.welcomeMsg {
+  font-family: "Roboto", sans-serif;
+}
+
 .logo {
   font-family: "Creepster", cursive;
   font-size: 2rem;

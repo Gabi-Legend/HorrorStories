@@ -3,9 +3,12 @@
 import { useState } from "react";
 import styles from "./NavBar.module.css";
 import Link from "next/link";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
 
   return (
     <nav className={styles.navigation}>
@@ -32,12 +35,17 @@ export default function NavBar() {
       <div
         className={`${styles.signSection} ${menuOpen ? styles.showMenu : ""}`}
       >
-        <Link href="/signup" className={styles.signBtn}>
-          Sign Up
-        </Link>
-        <Link href="/login" className={styles.signBtn}>
-          Log in
-        </Link>
+        {!loading && !user && (
+          <>
+            <Link href="/signup" className={styles.signBtn}>
+              Sign Up
+            </Link>
+            <Link href="/login" className={styles.signBtn}>
+              Sign in
+            </Link>
+          </>
+        )}
+        {user && <p className={styles.welcomeMsg}>Welcome, {user.email}</p>}
       </div>
     </nav>
   );
