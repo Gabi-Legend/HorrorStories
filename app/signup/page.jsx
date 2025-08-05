@@ -13,14 +13,13 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [localError, setLocalError] = useState(""); // pentru eroarea de parolă
+  const [localError, setLocalError] = useState("");
   const [createUserWithEmailAndPassword, user, loading, firebaseError] =
     useCreateUserWithEmailAndPassword(auth);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    // Validare parolă
     if (password.length < 8) {
       setLocalError("Password must be at least 8 characters.");
       return;
@@ -35,7 +34,6 @@ export default function SignUp() {
         });
       }
 
-      // Reset state
       setEmail("");
       setPassword("");
       setUsername("");
@@ -81,15 +79,13 @@ export default function SignUp() {
         {loading ? "Creating..." : "Sign Up"}
       </button>
 
-      {/* Afișare eroare de validare locală */}
       {localError && <p className={styles.errorMsg}>{localError}</p>}
 
-      {/* Afișare eroare Firebase */}
       {firebaseError && (
         <p className={styles.errorMsg}>{firebaseError.message}</p>
       )}
 
-      <Link href="/signin" className={styles.link}>
+      <Link href="/login" className={styles.link}>
         Already have an account? Sign in
       </Link>
     </form>
