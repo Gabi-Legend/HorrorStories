@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./page.module.css";
+import StoryNav from "../components/storyNav/StoryNav";
 
 const stories = [
   {
@@ -27,29 +28,32 @@ export default function StoryPage() {
   };
 
   return (
-    <section className={styles.storySection}>
-      {stories.map((story) => (
-        <div
-          key={story.id}
-          className={`${styles.card} ${
-            expandedId === story.id ? styles.expanded : ""
-          }`}
-        >
-          <h3 className={styles.title}>{story.title}</h3>
-          <p className={styles.author}>by {story.author}</p>
-          <p className={styles.description}>
-            {expandedId === story.id
-              ? story.description
-              : story.description.slice(0, 100) + "..."}
-          </p>
-          <button
-            className={styles.button}
-            onClick={() => toggleCard(story.id)}
+    <div>
+      <StoryNav />
+      <section className={styles.storySection}>
+        {stories.map((story) => (
+          <div
+            key={story.id}
+            className={`${styles.card} ${
+              expandedId === story.id ? styles.expanded : ""
+            }`}
           >
-            {expandedId === story.id ? "Show less" : "Read more"}
-          </button>
-        </div>
-      ))}
-    </section>
+            <h3 className={styles.title}>{story.title}</h3>
+            <p className={styles.author}>by {story.author}</p>
+            <p className={styles.description}>
+              {expandedId === story.id
+                ? story.description
+                : story.description.slice(0, 100) + "..."}
+            </p>
+            <button
+              className={styles.button}
+              onClick={() => toggleCard(story.id)}
+            >
+              {expandedId === story.id ? "Show less" : "Read more"}
+            </button>
+          </div>
+        ))}
+      </section>
+    </div>
   );
 }
