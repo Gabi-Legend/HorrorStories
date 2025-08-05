@@ -1,9 +1,9 @@
 .storySection {
-  max-width: 600px;
+  max-width: 1450px;
   margin: 2rem auto;
   padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   font-family: "Roboto", sans-serif;
 }
@@ -18,7 +18,9 @@
   transition: max-height 0.4s ease, padding 0.3s ease;
   overflow: hidden;
   max-height: 200px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .expanded {
