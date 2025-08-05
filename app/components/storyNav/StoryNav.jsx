@@ -1,4 +1,5 @@
 import styles from "./StoryNav.module.css";
+import Link from "next/link";
 
 export default function StoryNav() {
   return (
@@ -6,7 +7,9 @@ export default function StoryNav() {
       <h1 className={styles.logo}>
         <a href="/">Horror stories</a>
       </h1>
-      <button className={styles.createStoryBtn}>Create story</button>
+      <button className={styles.createStoryBtn}>
+        <Link href="/createstory">Create story</Link>
+      </button>
     </nav>
   );
 }
